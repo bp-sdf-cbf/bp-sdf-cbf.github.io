@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Geometry-Aware Control Barrier Functions via Bernstein Polynomial Approximations">
+  <meta name="description" content="Geometry-aware control barrier functions built on Bernstein-polynomial signed distance fields for safe navigation of irregularly shaped robots. ICRA 2026.">
+  <meta name="keywords" content="control barrier functions, signed distance fields, Bernstein polynomials, collision avoidance, multi-robot systems, safe navigation, robotics, ICRA 2026">
+  <meta name="author" content="Siwon Jo, Yanze Zhang, Yupeng Yang, Wenhao Luo">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Geometry-Aware Control Barrier Functions for Collision Avoidance via Bernstein Polynomial Approximations">
+  <meta property="og:description" content="Geometry-aware control barrier functions built on Bernstein-polynomial signed distance fields for safe navigation of irregularly shaped robots. ICRA 2026.">
+  <meta property="og:url" content="https://bp-sdf-cbf.github.io/">
+  <meta property="og:image" content="https://bp-sdf-cbf.github.io/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Simulations of geometry-aware CBFs with BP-SDFs: a robot among composite obstacles, two unicycle robots, four heterogeneous robots">
+  <meta property="article:author" content="Siwon Jo">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="Control Barrier Functions">
+  <meta property="article:tag" content="Signed Distance Fields">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Geometry-Aware Control Barrier Functions for Collision Avoidance via Bernstein Polynomial Approximations">
+  <meta name="twitter:description" content="Geometry-aware control barrier functions built on Bernstein-polynomial signed distance fields for safe navigation of irregularly shaped robots. ICRA 2026.">
+  <meta name="twitter:image" content="https://bp-sdf-cbf.github.io/static/images/social_preview.png">
+  <meta name="twitter:image:alt" content="Simulations of geometry-aware CBFs with BP-SDFs">
+
+  <!-- Academic metadata (Google Scholar) -->
+  <meta name="citation_title" content="Geometry-Aware Control Barrier Functions for Collision Avoidance via Bernstein Polynomial Approximations">
+  <meta name="citation_author" content="Jo, Siwon">
+  <meta name="citation_author" content="Zhang, Yanze">
+  <meta name="citation_author" content="Yang, Yupeng">
+  <meta name="citation_author" content="Luo, Wenhao">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="IEEE International Conference on Robotics and Automation (ICRA)">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2605.30696">
+  <meta name="citation_arxiv_id" content="2605.30696">
+  <meta name="citation_doi" content="10.1109/ICRA57385.2026.11696181">
+  <meta name="citation_firstpage" content="10449">
+  <meta name="citation_lastpage" content="10456">
+
+  <meta name="theme-color" content="#2563eb">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <title>Geometry-Aware CBFs via Bernstein Polynomial Approximations | ICRA 2026</title>
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico?v=3">
+  <link rel="apple-touch-icon" href="static/images/apple-touch-icon.png?v=3">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <!-- MathJax for the equations in the Method section -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      chtml: { scale: 1.0 }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Geometry-Aware Control Barrier Functions for Collision Avoidance via Bernstein Polynomial Approximations",
+    "description": "Geometry-aware control barrier functions built on Bernstein-polynomial signed distance fields for safe navigation of irregularly shaped robots.",
+    "author": [
+      {"@type": "Person", "name": "Siwon Jo", "affiliation": {"@type": "Organization", "name": "University of Pennsylvania"}},
+      {"@type": "Person", "name": "Yanze Zhang", "affiliation": {"@type": "Organization", "name": "University of Illinois Chicago"}},
+      {"@type": "Person", "name": "Yupeng Yang", "affiliation": {"@type": "Organization", "name": "University of North Carolina at Charlotte"}},
+      {"@type": "Person", "name": "Wenhao Luo", "affiliation": {"@type": "Organization", "name": "University of Illinois Chicago"}}
+    ],
+    "datePublished": "2026",
+    "publisher": {"@type": "Organization", "name": "IEEE International Conference on Robotics and Automation (ICRA)"},
+    "url": "https://bp-sdf-cbf.github.io/",
+    "image": "https://bp-sdf-cbf.github.io/static/images/social_preview.png",
+    "sameAs": ["https://arxiv.org/abs/2605.30696"],
+    "keywords": ["control barrier functions", "signed distance fields", "Bernstein polynomials", "collision avoidance", "multi-robot systems"]
+  }
+  </script>
+</head>
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+
+  <!-- Title -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Geometry-Aware Control Barrier Functions for Collision Avoidance via Bernstein Polynomial Approximations</h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Siwon Jo<sup>1</sup>,</span>
+              <span class="author-block">Yanze Zhang<sup>2</sup>,</span>
+              <span class="author-block">Yupeng Yang<sup>3</sup>,</span>
+              <span class="author-block">Wenhao Luo<sup>2</sup></span>
+            </div>
+
+            <div class="is-size-6 publication-authors affiliations">
+              <span class="author-block"><sup>1</sup>GRASP Laboratory, University of Pennsylvania</span>
+              <span class="author-block"><sup>2</sup>University of Illinois Chicago</span>
+              <span class="author-block"><sup>3</sup>University of North Carolina at Charlotte</span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block publication-venue">2026 IEEE International Conference on Robotics and Automation (ICRA 2026)</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2605.30696" target="_blank" rel="noopener"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2605.30696" target="_blank" rel="noopener"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser video -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <p class="teaser-label">BP-SDF fit in the paper</p>
+        <video class="teaser-video" poster="static/images/teaser_poster.jpg" autoplay muted loop playsinline preload="auto">
+          <source src="static/videos/teaser.mp4" type="video/mp4">
+        </video>
+        <p class="teaser-label mt-5">Better boundary approximation can additionally be achieved</p>
+        <video class="teaser-video" poster="static/images/teaser_smooth_poster.jpg" autoplay muted loop playsinline preload="auto">
+          <source src="static/videos/teaser_smooth.mp4" type="video/mp4">
+        </video>
+        <p class="teaser-caption has-text-centered">
+          Weighting the regression toward the boundary and sampling densely there brings the learned level sets within
+          0.02&ndash;0.25&nbsp;m of the true shapes (paper fit: 0.22&ndash;0.52&nbsp;m).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Safe navigation often relies on well-defined conditions based on the shape of robots and obstacles, and can be
+              challenging when they have irregular geometries. While Control Barrier Functions (CBFs) offer an efficient
+              mechanism to enforce safe set forward invariance, common shape surrogates (e.g., spheres or super-ellipsoids)
+              are either overly conservative in unstructured scenes or require many local primitives, which inflates
+              constraint counts and degrades real-time performance. In this paper, we introduce a novel geometry-aware
+              Control Barrier Function (CBF) based on Bernstein-Polynomial Signed Distance Fields (BP-SDFs). It provides
+              a unified way to represent the obstacles and robots, so as to represent the barrier function with a unified
+              minimum distance. Benefiting from the differentiability of the Bernstein polynomials, one can easily enforce
+              the control constraints in a closed loop. We validate the method's efficiency and performance to guarantee
+              safety in single-robot navigation and heterogeneous multi-robot collision avoidance via simulations under
+              different environments.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Unified Barrier Function with Bernstein Polynomials</h2>
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <figure class="image paper-figure is-narrow-figure">
+            <img src="static/images/fig1_overview.png" alt="Level sets of BP-SDF approximations of robots and obstacles" loading="lazy">
+          </figure>
+          <p class="has-text-centered content mt-3">
+            Examples of the level sets for SDF approximation using Bernstein polynomials on robots and obstacles.
+            (The robot and obstacle drawings are illustrations, not the ground-truth shapes used to fit the SDFs.)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Handling Non-Smoothness in Composite Obstacles</h2>
+      <div class="columns is-centered">
+        <div class="column">
+          <figure class="image paper-figure">
+            <img src="static/images/fig2_cspace.png" alt="C-space of the composite obstacle set and its BP-SDF" loading="lazy">
+          </figure>
+          <p class="has-text-centered content mt-3">
+            C-space (red) of the composite obstacle set inflated by the radius of the robot (green).
+            The right figure shows the SDF of the C-space with a user-defined safety margin level set (blue contours).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section class="section" id="results">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Results</h2>
+
+      <div class="result-block">
+        <h3 class="title is-4 has-text-centered">Single-Robot Navigation (Composite Obstacles in C-space)</h3>
+        <video class="result-video" poster="static/images/cspace_robot_poster.jpg" controls muted loop playsinline preload="metadata">
+          <source src="static/videos/cspace_robot.mp4" type="video/mp4">
+        </video>
+        <p class="content mt-3 has-text-centered">
+          A single robot navigating through an environment populated with multiple obstacles of varying shapes
+          (obstacle layout of Fig. 2 in the paper, shown above).
+        </p>
+      </div>
+
+      <div class="result-block">
+        <h3 class="title is-4 has-text-centered">Safe Navigation of Two Robots under Unicycle Dynamics</h3>
+        <video class="result-video" poster="static/images/two_robots_poster.jpg" controls muted loop playsinline preload="metadata">
+          <source src="static/videos/two_robots.mp4" type="video/mp4">
+        </video>
+        <p class="content mt-3 has-text-centered">
+          Two-robot position-switching under unicycle dynamics. The solid lines and dashed lines represent the
+          approximated shapes by BP-SDFs and ground truth shapes of the robots, respectively.
+        </p>
+      </div>
+
+      <div class="result-block">
+        <h3 class="title is-4 has-text-centered">Safe Navigation of Four Heterogeneous Robots</h3>
+        <video class="result-video" poster="static/images/four_robots_poster.jpg" controls muted loop playsinline preload="metadata">
+          <source src="static/videos/four_robots.mp4" type="video/mp4">
+        </video>
+        <p class="content mt-3 has-text-centered">
+          Collision avoidance among four mobile robots with different smooth convex shapes represented by the respective
+          SDF level sets.
+        </p>
+      </div>
+
+      <div class="result-block">
+        <h3 class="title is-4 has-text-centered">Quantitative Results</h3>
+        <div class="columns is-centered">
+          <div class="column is-7">
+            <figure class="image paper-figure">
+              <img src="static/images/fig7_quantitative.png" alt="Computation time and minimum distance versus number of obstacles" loading="lazy">
+            </figure>
+          </div>
+        </div>
+        <p class="content mt-3 has-text-centered">
+          Curves show means over five trials. <strong>Top:</strong> per-time-step computation time.
+          <strong>Bottom:</strong> minimum ground-truth robot&ndash;obstacle distance. Shaded areas denote \(\pm 1\) standard deviation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BibTeX -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@inproceedings{jo2026geometry,
+  author={Jo, Siwon and Zhang, Yanze and Yang, Yupeng and Luo, Wenhao},
+  booktitle={2026 IEEE International Conference on Robotics and Automation (ICRA)},
+  title={Geometry-Aware Control Barrier Functions for Collision Avoidance via Bernstein Polynomial Approximations},
+  year={2026},
+  pages={10449--10456},
+  doi={10.1109/ICRA57385.2026.11696181}
+}</code></pre>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>
+              which was adopted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page.
+              <br>The page template is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
